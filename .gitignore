@@ -1,0 +1,29 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables / secrets
+.env
+
+# SQLite database files
+siem.db
+siem.db-wal
+siem.db-shm
+*.sqlite
+*.sqlite3
+
+# Real logs
+logs/
+*.log
+
+# Keep safe sample logs
+!sample_logs/
+!sample_logs/*.log
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/

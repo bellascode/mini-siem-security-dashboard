@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Recent Events</h2>
+
+{% if events %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Timestamp</th>
+        <th>Source</th>
+        <th>Event Type</th>
+        <th>IP</th>
+        <th>Username</th>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Status</th>
+    </tr>
+
+    {% for event in events %}
+    <tr>
+        <td>{{ event.id }}</td>
+        <td>{{ event.timestamp }}</td>
+        <td>{{ event.source }}</td>
+        <td>{{ event.event_type }}</td>
+        <td>{{ event.ip }}</td>
+        <td>{{ event.username }}</td>
+        <td>{{ event.method }}</td>
+        <td>{{ event.path }}</td>
+        <td>{{ event.status_code }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<div class="empty">
+    No events found. Run <code>python3 ingest.py --reset</code> first.
+</div>
+{% endif %}
+
+{% endblock %}

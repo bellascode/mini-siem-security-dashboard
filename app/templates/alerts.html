@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Alerts</h2>
+
+{% if alerts %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Timestamp</th>
+        <th>Severity</th>
+        <th>Alert Type</th>
+        <th>IP</th>
+        <th>Evidence Count</th>
+        <th>Description</th>
+    </tr>
+
+    {% for alert in alerts %}
+    <tr>
+        <td>{{ alert.id }}</td>
+        <td>{{ alert.timestamp }}</td>
+
+        {% if alert.severity == "Critical" %}
+            <td class="severity-critical">{{ alert.severity }}</td>
+        {% elif alert.severity == "High" %}
+            <td class="severity-high">{{ alert.severity }}</td>
+        {% elif alert.severity == "Medium" %}
+            <td class="severity-medium">{{ alert.severity }}</td>
+        {% else %}
+            <td>{{ alert.severity }}</td>
+        {% endif %}
+
+        <td>{{ alert.alert_type }}</td>
+        <td>{{ alert.ip }}</td>
+        <td>{{ alert.evidence_count }}</td>
+        <td>{{ alert.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<div class="empty">
+    No alerts found. Run <code>python3 ingest.py --reset</code> first.
+</div>
+{% endif %}
+
+{% endblock %}

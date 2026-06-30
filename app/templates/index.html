@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Overview</h2>
+
+<div class="grid">
+    <div class="card">
+        <h3>Total Events</h3>
+        <div class="metric">{{ total_events }}</div>
+    </div>
+
+    <div class="card">
+        <h3>Total Alerts</h3>
+        <div class="metric">{{ total_alerts }}</div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card">
+        <h3>Top Source IPs</h3>
+
+        {% if top_ips %}
+            <ul>
+                {% for row in top_ips %}
+                    <li>{{ row.ip }} — {{ row.total }} events</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No IP data yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h3>Event Types</h3>
+
+        {% if event_counts %}
+            <ul>
+                {% for row in event_counts %}
+                    <li>{{ row.event_type }} — {{ row.total }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No event data yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card">
+        <h3>Alert Types</h3>
+
+        {% if alert_counts %}
+            <ul>
+                {% for row in alert_counts %}
+                    <li>{{ row.alert_type }} — {{ row.total }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No alerts yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h3>Recent Alerts</h3>
+
+        {% if recent_alerts %}
+            <ul>
+                {% for alert in recent_alerts %}
+                    <li>
+                        <strong>{{ alert.severity }}</strong>
+                        —
+                        {{ alert.alert_type }}
+                        from
+                        {{ alert.ip }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recent alerts.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

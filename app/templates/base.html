@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini SIEM</title>
+    <meta http-equiv="refresh" content="5">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .navbar {
+            background: #111827;
+            color: white;
+            padding: 18px 40px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .container {
+            padding: 30px 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 22px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .metric {
+            font-size: 38px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: #111827;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .severity-critical {
+            color: #991b1b;
+            font-weight: bold;
+        }
+
+        .severity-high {
+            color: #b45309;
+            font-weight: bold;
+        }
+
+        .severity-medium {
+            color: #1d4ed8;
+            font-weight: bold;
+        }
+
+        .empty {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>Mini SIEM Dashboard</h1>
+
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/events">Events</a>
+            <a href="/alerts">Alerts</a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
