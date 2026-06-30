@@ -31,3 +31,19 @@ detector.py
 SQLite database
         ↓
 Flask dashboard
+```
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Alerts
+
+![Alerts](screenshots/alerts.png)
+
+### Real-Time Monitor
+
+![Real-Time Monitor](screenshots/events1.png)
+![Real-Time Monitor](screenshots/events2.png)
